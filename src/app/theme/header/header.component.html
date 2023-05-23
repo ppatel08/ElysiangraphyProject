@@ -1,0 +1,42 @@
+<header id="header" class="header-show-hide-on-scroll menu-align-right">
+  <div class="header-inner tt-wrap"> <!-- add/remove class "tt-wrap" to enable/disable element boxed layout (class "tt-boxed" is required in <body> tag! ) -->
+
+    <div id="logo">
+      <div class="sidebar-brand">
+        <h2>Elysiangraphy</h2>
+      </div>  
+    </div>
+    <nav class="tt-main-menu">
+      <div id="tt-m-menu-toggle-btn">
+        <span></span>
+      </div>
+      <div class="tt-menu-collapse tt-submenu-dark">
+        <ul class="tt-menu-nav">
+          <li class="tt-submenu-wrap tt-submenu-master" (click)="menuclick()">
+            <a  href="#body-content-home" >Home</a>
+          </li>
+          <li class="tt-submenu-wrap tt-submenu-master" (click)="menuclick()">
+            <a href="#body-content-about-us">About</a>
+          </li>
+          <li class="tt-submenu-wrap tt-submenu-master" (click)="menuclick()">
+            <a href="#body-content">Portfolio</a>
+          </li>
+          <li class="tt-submenu-wrap tt-submenu-master" (click)="menuclick()">
+            <a  href="#body-content-feedback">Feedback</a>
+
+          </li>
+          <li class="tt-submenu-wrap tt-submenu-master" (click)="menuclick()">
+            <a  href="#body-content-contactus">Contact</a>
+          </li>
+          <li class="tt-submenu-wrap tt-submenu-master">
+            <a [routerLink]="['login']">login</a>
+          </li>
+
+        </ul>
+      </div> 
+
+    </nav>
+
+  </div>
+
+</header>

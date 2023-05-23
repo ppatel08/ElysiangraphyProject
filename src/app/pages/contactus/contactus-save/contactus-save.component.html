@@ -1,0 +1,73 @@
+<div class="ev-container">
+    <div class="row">
+        <div class="col-sm-8">
+            <h1>{{_id? 'Edit':'Add'}} Contact</h1>
+        </div>
+        <div class="col-sm-4">
+            <div style="float: right;">
+                <button mat-raised-button (click)="submitForm()" class="btn btn-primary btn-sm">
+                    Save
+                </button>
+                &nbsp;
+                <button mat-raised-button (click)="back()" class="btn btn-danger btn-sm">
+                    Cancel
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <form class="user" [formGroup]="contactusForm">
+                <div class="col-6">
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" formControlName="name" id="name" name="name" class="form-control">
+                        <div class="error input-error" style="width: auto;padding: 5px;"
+                            *ngIf="controls.name.invalid && (submitted || (controls.name.dirty || controls.name.touched))">
+                            <div *ngIf="controls.name.errors?.required">
+                                Name is required.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-group">
+                        <label>Subject</label>
+                        <input type="text" formControlName="subject" id="subject" name="subject" class="form-control">
+                        <div class="error input-error" style="width: auto;padding: 5px;"
+                            *ngIf="controls.subject.invalid && (submitted || (controls.subject.dirty || controls.subject.touched))">
+                            <div *ngIf="controls.subject.errors?.required">
+                                Subject is required.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" formControlName="customerEmail" id="customerEmail" name="customerEmail"
+                            class="form-control">
+                        <div class="error input-error" style="width: auto;padding: 5px;"
+                            *ngIf="controls.customerEmail.invalid && (submitted || (controls.customerEmail.dirty || controls.customerEmail.touched))">
+                            <div *ngIf="controls.customerEmail.errors?.required">
+                                Email is required.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-group">
+                        <label>Message</label>
+                        <input type="text" formControlName="message" id="message" name="message" class="form-control">
+                        <div class="error input-error" style="width: auto;padding: 5px;"
+                            *ngIf="controls.message.invalid && (submitted || (controls.message.dirty || controls.message.touched))">
+                            <div *ngIf="controls.message.errors?.required">
+                                Message is required.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

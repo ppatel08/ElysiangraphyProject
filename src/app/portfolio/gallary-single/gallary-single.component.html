@@ -1,0 +1,56 @@
+<div id="body-content" class="body-content-custom" *ngIf="isLoaded">
+  <section id="page-header" class="ph-lg">
+    <div class="page-header-image parallax-bg-3 bg-image" [ngStyle]="{'background-image': 'url('+ album?.coverImageUrl +')'}">
+      <div class="cover bg-transparent-5-dark"></div>
+    </div>
+    <div class="page-header-inner tt-wrap">
+      <div class="page-header-caption parallax-4 fade-out-scroll-4">
+        <h1 class="page-header-title">{{ album?.title }}</h1>
+        <div class="page-header-category"><a [routerLink]="['', 'album', album?.categoryId]">{{album?.categoryName}}</a></div>
+        <div class="page-header-description" data-max-words="40">
+          <p>{{ album?.description }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="gallery-single-section">
+    <div class="isotope-wrap tt-wrap">
+      <div class="isotope col-3 gutter-3">
+        <div id="gallery" *ngIf="albumImages?.length" class="isotope-items-wrap lightgallery">
+          <div class="grid-sizer"></div>
+          <div class="isotope-item" *ngFor="let albumImage of albumImages">
+            <a [href]="albumImage?.imageFileUrl" class="gallery-single-item lg-trigger" [attr.data-exthumbnail]="albumImage?.imageFileUrl" data-sub-html="<p>Yes, you can use image captions :)</p>">
+              <img [src]="albumImage?.imageFileUrl" class="gs-item-image" alt="">
+              <div class="gsi-image-caption">Yes, you can use image captions :)</div>
+              <div class="gs-item-icon"><i class="fas fa-search"></i></div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div> 
+  </section>
+  <section id="more-projects-section" *ngIf="albums && albums.length > 0">
+
+    <div class="tt-heading padding-on text-center bg-gray-3">
+
+      <div class="tt-heading-inner tt-wrap">
+        <h1 class="tt-heading-title">More Projects You Might Like</h1>
+        <div class="tt-heading-subtitle">Please see my other projects</div>
+        <hr class="hr-short">
+      </div>
+    </div>
+    <div class="more-projects-inner">
+      <div class="project-carousel">
+        <div class="owl-carousel cc-height-1 cc-hover-dark nav-outside-top" data-items="4" data-margin="0" data-dots="false" data-nav="true" data-nav-speed="800" data-tablet-portrait="1" data-tablet-landscape="3" data-tablet-portrait="2" data-mobile-landscape="1" data-mobile-portrait="1">
+          <a (click)="openAlbumn(alb?._id)"  class="cc-item" *ngFor="let alb of albums">
+            <div class="cc-image full-cover bg-image" [ngStyle]="{'background-image': 'url('+ alb?.imageLink +')'}"></div>
+            <div class="cc-caption center max-width-400">
+              <h2 class="cc-title">{{ alb?.title }}</h2>
+              <div class="cc-category"><span>{{alb?.categoryName}}</span></div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

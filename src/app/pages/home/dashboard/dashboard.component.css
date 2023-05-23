@@ -1,0 +1,32 @@
+.welcome-box {
+	padding: 30px 30px;
+	border-radius: 10px;
+}
+.welcome-box .home-icon {
+	margin-bottom: 30px;
+}
+.welcome-box .home-icon svg {
+	width: 70px;
+	height: 70px;
+}
+.welcome-box .home-icon svg path,
+.welcome-box .home-icon svg rect,
+.welcome-box .home-icon svg circle,
+.welcome-box .home-icon svg polygon,
+.welcome-box .home-icon svg ellipse,
+.welcome-box .home-icon svg line  {
+	fill: #21609e;
+}
+.welcome-box h2 {
+	font-size: 28px;
+	color: #2a3042;
+	margin-bottom: 30px;
+}
+.welcome-box p {
+	margin: 0;
+}
+
+table,
+.mat-elevation-z8 {
+    width: 100%;
+}

@@ -1,0 +1,88 @@
+<div class="ev-container">
+    <div class="row">
+        <div class="col-sm-8">
+            <h1>Album Details</h1>
+        </div>
+        <div class="col-sm-4">
+            <div style="float: right;">
+                <button mat-raised-button class="btn btn-primary btn-sm" (click)="edit()">
+                    Edit
+                </button>
+                <button mat-raised-button (click)="back()" class="btn btn-danger btn-sm" style="margin-left: 5px;">
+                    Back
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th style="width: 15%;">Name</th>
+                        <td colspan="3">{{albumsData?.title}}</td>
+                    </tr>
+                    <tr>
+                        <th>Description</th>
+                        <td colspan="3">{{albumsData?.description}}</td>
+                    </tr>
+                    <tr>
+                        <th>Album Thumbnail</th>
+                        <td>
+                            <img [src]="root.getImageUrl(albumsData?.thumbnail)" height="100px" width="100px">
+                        </td>
+                        <th>Album Cover</th>
+                        <td>
+                            <img [src]="root.getImageUrl(albumsData?.cover)" height="100px" width="100px">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Category Name</th>
+                        <td>{{albumsData?.categoryName}}</td>
+                        <th>Category Cover</th>
+                        <td>
+                            <img [src]="root.getImageUrl(albumsData?.categoryCover)" height="100px" width="100px">
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <div class="row">
+        <div class="col-sm-12">
+            <h1>Album Images</h1>
+        </div>
+    </div>
+    <app-upload-files (onComplete)="onComplete($event)" [albumId]="_id"></app-upload-files>
+    <div id="body-content">
+        
+        <section id="gallery-single-section">
+            <div class="isotope-wrap tt-wrap">
+
+                <div class="isotope col-3 gutter-3">
+
+                    <div id="gallery" *ngIf="imagesData?.length" class="isotope-items-wrap lightgallery">
+
+                        <div class="grid-sizer"></div>
+
+                        <div class="isotope-item" *ngFor="let img of imagesData">
+
+                            <a class="gallery-single-item lg-trigger" >
+
+                                <img style="height: 250px; width: 100%;" [src]="root.getImageUrl(img?.image)" class="gs-item-image" alt="">
+                                <div class="gs-item-icon" (click)="delete(img?._id)"><i class="fas fa-trash"></i></div>
+                            </a>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </div>
+
+
+</div>

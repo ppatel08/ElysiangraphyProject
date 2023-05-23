@@ -1,0 +1,87 @@
+/* You can add global styles to this file, and also import other style files */
+@import url("./assets/vendor/ytplayer/css/jquery.mb.YTPlayer.min.css");
+/* html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+
+.outlet-content {
+  padding: 20px;
+}
+
+.m-t-50 {
+  margin-top: 50px;
+}
+
+.m-10 {
+  margin: 10px;
+}
+
+.mat-form-field {
+  display: block !important;
+}
+
+.mat-form-field-appearance-fill .mat-form-field-flex {
+  border-radius: 4;
+  padding: 0 !important;
+}
+
+.mat-form-field-underline {
+  display: none !important;
+}
+
+.mat-date-range-input-container {
+  padding: 5px !important;
+}
+
+.date-time-picker-date-toggle {
+  border: 1px solid #ced4da;
+  background-color: white;
+  height: calc(1.5em + 0.75rem + 2px);
+}
+
+.date-time-picker-time-input {
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+}
+
+.view-file-icon {
+  line-height: 0 !important;
+  height: 0 !important;
+}
+
+th:nth-child(1).mat-header-cell, td:nth-child(1).mat-cell, td.mat-footer-cell {
+  padding-left: 24px !important;
+  padding-right: 24px !important;
+}
+
+th.mat-header-cell, td.mat-cell, td.mat-footer-cell {
+  padding-left: 5px !important;
+  padding-right: 5px !important;
+} */
+
+.tt-caret{
+  display: none !important;
+}
+
+html, body { height: 100%; top: 0 !important;}
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; padding-top: 0px !important; }
+
+.ev-container {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.body-content-custom {
+  padding-top: 80px;
+}
+
+.error {
+  color: red;
+  font-size: 1.4rem;
+}

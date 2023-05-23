@@ -1,0 +1,32 @@
+table,
+td,
+th {
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th,
+td {
+  padding: 15px;
+}
+
+
+.custom-image {
+  height: 250px;
+  width: 350px;
+}
+
+.panel-heading-black {
+  color: #fff;
+  background-color: #222222 !important;
+  border-color: #222222 !important;
+}
+
+.panel-black {
+  border-color: #222222;
+}

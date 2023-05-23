@@ -1,0 +1,30 @@
+<form class="user" [formGroup]="myForm" autocomplete="off">
+    <h1 mat-dialog-title> Send Feedback Link </h1>
+    <div mat-dialog-content>
+
+        <!-- Content Row -->
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <label for="customer_email"> Customer Email: </label>
+                    <input type="email" formControlName="customer_email" id="customer_email" name="customer_email"
+                        class="form-control">
+                    <div class="error input-error" style="width: auto;padding: 5px;"
+                        *ngIf="controls.customer_email.invalid && (submitted || (controls.customer_email.dirty || controls.customer_email.touched))">
+                        <div *ngIf="controls.customer_email.errors?.required">
+                            Customer Email is required.
+                        </div>
+                        <div *ngIf="controls.customer_email.errors?.email">
+                            Customer Email is invalid.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div mat-dialog-actions>
+        <button mat-button class="btn btn-success" (click)="onAction(true)">Send Feedback Link </button>
+        &nbsp;
+        <button mat-button class="btn btn-danger" (click)="onAction(false)">Cancel</button>
+    </div>
+</form>

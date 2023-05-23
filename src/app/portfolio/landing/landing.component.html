@@ -1,0 +1,154 @@
+  <div id="body-content-home" class="body-content-custom">
+
+
+    <!-- =================================
+    ///// Begin gallery list section /////
+    ================================== -->
+    <section id="gallery-list-section" class="gallery-list-carousel">
+      <div class="gallery-list-slideshow-inner tt-wrap"> <!-- add/remove class "tt-wrap" to enable/disable element boxed layout (class "tt-boxed" is required in <body> tag! ) -->
+        <div class="gl-carousel-wrap no-padding"> <!-- Optional: add class "no-padding" to disable paddings -->
+
+          <!-- Begin content carousel (https://owlcarousel2.github.io/OwlCarousel2/)
+          ====================================================================
+          * Use class "nav-outside" for outside nav (requires boxed layout).
+          * Use class "nav-outside-top" for outside top nav (requires enough space at the top of the carousel).
+          * Use class "nav-bottom-right" for bottom right nav.
+          * Use class "nav-rounded" for rounded nav.
+          * Use class "nav-light" to enable nav light style.
+          * Use class "dots-outside" for outside dots (requires enough space at the bottom of the carousel).
+          * Use class "dots-left", "dots-right" or "dots-center-right" to align dots.
+          * Use class "dots-rounded" for rounded dots.
+          * Use class "owl-mousewheel" to enable mousewheel support.
+          * Use class "cursor-grab" to enable cursor grab icon (no effect on links!).
+          * Use class "cc-hover-light", "cc-hover-dark" or "cc-hover-zoom" to enable carousel items hover effect.
+          * Use class "cc-height-1", "cc-height-2", "cc-height-3", "cc-height-4", "cc-height-5", "cc-height-6" or "cc-height-full" to set carousel height (do not use with data-autoheight="true"!!!).
+          * Use class "cc-height-m" to set full height for small screens (do not use with data-autoheight="true"!!!).
+          ================================================================
+          * Available carousel data attributes:
+              data-items="5".......................(items visible on desktop)
+              data-tablet-landscape="4"............(items visible on mobiles)
+              data-tablet-portrait="3".............(items visible on mobiles)
+              data-mobile-landscape="2"............(items visible on tablets)
+              data-mobile-portrait="1".............(items visible on tablets)
+              data-loop="true".....................(true/false)
+              data-margin="10".....................(space between items)
+              data-center="true"...................(true/false)
+              data-start-position="0"..............(item start position)
+              data-animate-in="fadeIn".............(fade-in animation)
+              data-animate-out="fadeOut"...........(fade-out animation)
+              data-mouse-drag="false"..............(true/false)
+              data-touch-drag="false"..............(true/false)
+              data-autoheight="true"...............(true/false)
+              data-autoplay="true".................(true/false)
+              data-autoplay-timeout="5000".........(milliseconds)
+              data-autoplay-hover-pause="true".....(true/false)
+              data-autoplay-speed="800"............(milliseconds)
+              data-drag-end-speed="800"............(milliseconds)
+              data-nav="true"......................(true/false)
+              data-nav-speed="800".................(milliseconds)
+              data-dots="false"....................(true/false)
+              data-dots-speed="800"................(milliseconds)
+          -->
+          <div class="owl-carousel cc-height-full nav-bottom-right bg-dark cc-hover-zoom" data-items="1" data-mouse-drag="false" data-loop="true" data-dots="false" data-nav="true" data-animate-in="fadeIn" data-animate-out="fadeOut">
+
+            <!-- Begin carousel item
+            ========================= -->
+            <div class="cc-item" *ngFor="let album of albums" >
+
+              <!-- Element cover -->
+              <span class="cover bg-transparent-4-dark"></span>
+
+              <!-- cc image -->
+              <div class="cc-image bg-image" [ngStyle]="{'background-image': 'url('+ album?.coverImageLink +')' , 'background-position':'50% 50%'}"></div>
+
+              <!-- Begin caption
+              ===================
+              * Position classes: "top-left", "top-center", "top-right", "center-left", "center", "center-right", "bottom-left", "bottom-center", "bottom-right".
+              * Size classes: "cc-caption-xs", "cc-caption-sm", "cc-caption-lg", "cc-caption-xlg", "cc-caption-xxlg".
+              -->
+              <div class="cc-caption cc-caption-xxlg bottom-left caption-animate max-width-550">
+                <h2 class="cc-title"> {{ album?.title.length > 23 ?  (album?.title | slice:0:20) + '...' : (album?.title | slice:0:23)  }}</h2>
+
+                <!-- Use data attributes to set text maximum characters or words (example: data-max-characters="120" or data-max-words="40") -->
+                <p class="cc-description">
+                  {{album?.description}}
+                </p>
+
+                <a [routerLink]="['', 'gallery', album?._id]" class="btn btn-primary margin-top-25">View Gallery</a>
+              </div>
+              <!-- End caption -->
+
+              <!-- Begin thumbnail list (album preview thumbnails) Not displayed on smaller screens!!!
+              ==========================================
+              * Use class "col-2", "col-3", "col-4" "col-5" or "col-6" for thumbnail list columns.
+              * Use class "tl-rotate" to rotate items randomly.
+              -->
+              <ul class="thumb-list col-3 tl-rotate">
+                <li *ngFor="let image of album.images" ><a href="javascript:void(0)" [routerLink]="['', 'gallery', album?._id]" class="thumb-list-item bg-image" [ngStyle]="{'background-image': 'url('+ image?.imageLink +')' , 'background-position':'50% 50%'}" ></a></li>
+              </ul>
+              <!-- End thumbnail list -->
+
+            </div>
+            <!-- End carousel item -->
+
+
+            <!-- Begin carousel item
+            ========================= -->
+            <!-- <div class="cc-item">
+
+              <a class="owl-video" href="https://vimeo.com/99653121"></a>
+
+              <div class="cc-caption cc-caption-xxlg bottom-left caption-animate max-width-550">
+                <h2 class="cc-title">Beauty &amp; Fashion</h2>
+                <p class="cc-description">
+                  Nunc felis lorem, faucibus nec aliquet malesuada a ligula ultrices vulputate.
+                </p>
+                <a href="gallery-single-carousel-center.html" class="btn btn-primary margin-top-25">View Gallery</a>
+              </div>
+
+            </div> -->
+            <!-- End carousel item -->
+
+          </div>
+          <!-- End content carousel -->
+
+        </div> <!-- /.gl-carousel-wrap -->
+      </div> <!-- /.gallery-list-carousel-inner -->
+    </section>
+    <!-- End gallery list section -->
+    <app-about></app-about>
+    <app-portfolio></app-portfolio>
+    <app-blog></app-blog>
+    <app-contact></app-contact>
+
+
+    <section id="footer" class="footer-minimal no-margin-top bg-transparent" *ngIf="false">
+      <div class="footer-inner">
+        <div class="footer-container tt-wrap">
+          <div class="row">
+            <div class="col-md-6 col-md-push-6">
+
+              <!-- Begin social buttons -->
+              <div class="social-buttons">
+                <ul>
+                  <li *ngIf="aboutUs?.fb_link"><a [href]="aboutUs?.fb_link" class="btn btn-social-min btn-default btn-link" title="Follow me on Facebook" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                  <li *ngIf="aboutUs?.twitter_link"><a [href]="aboutUs?.twitter_link" class="btn btn-social-min btn-default btn-link" title="Follow me on Twitter" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                  <li *ngIf="aboutUs?.instagram_link"><a [href]="aboutUs?.instagram_link" class="btn btn-social-min btn-default btn-link" title="Follow me on Instagram" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                  <li *ngIf="aboutUs?.youtubeLink"><a [href]="aboutUs?.youtubeLink"
+                    class="btn btn-social-min btn-default btn-rounded-full" title="Follow me on Youtube" target="_blank">
+                    <i class="fab fa-youtube"></i></a></li>
+                  <li><a [routerLink]="['', 'contact']" class="btn btn-social-min btn-default btn-link" title="Drop me a line"><i class="fas fa-envelope"></i></a></li>
+                </ul>
+              </div>
+              <!-- End social buttons -->
+
+            </div> <!-- /.col -->
+
+          </div> <!-- /.row -->
+        </div> <!-- /.footer-container -->
+      </div> <!-- /.footer-inner -->
+    </section>
+    <!-- End footer section -->
+    <!-- End footer section -->
+
+  </div>

@@ -1,0 +1,46 @@
+table,
+td,
+th {
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th,
+td {
+  padding: 15px;
+}
+
+label {
+  padding: 15px;
+}
+
+.deleteIconOverlay {
+  position: relative;
+}
+
+.deleteIcon {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.column {
+  float: left;
+  width: 33%;
+  padding: 10px;
+}
+
+.column img {
+  margin-top: 12px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}

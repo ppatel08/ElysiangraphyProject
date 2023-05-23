@@ -1,0 +1,71 @@
+<header id="header" class="menu-align-right">
+
+    <!-- Begin header inner -->
+    <div class="header-inner tt-wrap">
+
+        <div id="logo">
+            <a href="/" class="logo-dark login-heading">Elysiangraphy Admin</a>
+            <a href="/" class="logo-light login-heading">Elysiangraphy Admin</a>
+
+            <a href="/" class="logo-dark-m login-heading">Elysiangraphy Admin</a>
+            <a href="/" class="logo-light-m login-heading">Elysiangraphy Admin</a>
+        </div>
+        <nav class="tt-main-menu">
+
+            <div id="tt-m-menu-toggle-btn">
+                <span></span>
+            </div>
+            <div class="tt-menu-tools">
+                <ul>
+                </ul>
+            </div>
+            <div class="tt-menu-collapse tt-submenu-dark">
+                <ul class="tt-menu-nav">
+                </ul>
+            </div>
+
+        </nav>
+
+    </div>
+
+</header>
+<div id="body-content">
+
+
+    <!-- =======================================
+    ///// Begin password protected section /////
+    ======================================== -->
+    <section id="password-protected-section">
+        <div class="password-protected-inner bg-image"
+            style="background-image: url(assets/img/misc/misc-5.jpg); background-position: 50% 50%;">
+            <!-- add/remove class "tt-wrap" to enable/disable element boxed layout (class "tt-boxed" is required in <body> tag! ) -->
+
+            <!-- Element cover -->
+            <span class="cover bg-transparent-4-dark"></span>
+
+            <!-- Begin post password 
+            ========================= -->
+            <div class="tt-post-password" style="height: 88.8vhvh !important;min-height: 88.8vh !important;">
+                <div class="tt-post-password-inner">
+                    <div class="tt-post-password-icon"><i class="fas fa-lock"></i></div>
+                    <div class="tt-post-password-text">To continue please enter your password!</div>
+                    <form [formGroup]="loginForm" id="tt-post-password-form" class="form-btn-inside">
+                        <div class="form-group">
+                            <input type="text" formControlName="username" class="form-control" id="post-username"
+                                name="post_username" placeholder="Enter Username..." required="" minlength="4">
+                            <input type="password" formControlName="password" class="form-control" id="post-pass"
+                                name="post_password" placeholder="Enter Password..." required="" minlength="4">
+                            <button type="submit" (click)="submitForm()">Access</button>
+                        </div>
+                    </form>
+                </div> <!-- /.post-password -->
+            </div>
+            <!-- End post password -->
+
+        </div> <!-- /.about-me-inner -->
+    </section>
+    <!-- End password protected section -->
+
+
+
+</div>

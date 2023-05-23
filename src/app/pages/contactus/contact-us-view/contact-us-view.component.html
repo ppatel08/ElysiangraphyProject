@@ -1,0 +1,62 @@
+<div class="ev-container">
+    <div class="row">
+        <div class="col-sm-8">
+            <h1>Inquiry Details</h1>
+        </div>
+        <div class="col-sm-4">
+            <div style="float: right;">
+                <button mat-raised-button (click)="back()" class="btn btn-success btn-sm">
+                    Back
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th style="width: 15%;">Name</th>
+                        <td>{{inquiryData?.name}}</td>
+                    </tr>
+                    <tr>
+                        <th>Email</th>
+                        <td>{{inquiryData?.customerEmail}}</td>
+                    </tr>
+                    <tr>
+                        <th>Subject</th>
+                        <td>{{inquiryData?.subject}}</td>
+                    </tr>
+                    <tr>
+                        <th>Message</th>
+                        <td>{{inquiryData?.message}}</td>
+                    </tr>
+                    <tr>
+                        <th>Status</th>
+                        <td style="padding: 0;">
+                            <span *ngIf="!isEdit" style="float: left; padding: 15px;">{{inquiryData?.status}}</span>
+                            <span *ngIf="isEdit" style="float: left; padding: 15px;">
+                                <select class="form-control" style="height: 30px !important;" [(ngModel)]="newStatus">
+                                    <option *ngFor="let s of status" [ngValue]="s">{{s}}</option>
+                                </select>
+                            </span>
+                            <div style="float: right;margin-top: 8px;">
+                                <button mat-icon-button *ngIf="isEdit" (click)="updateStatus()" color="primary" matTooltip="Save">
+                                    <mat-icon>save</mat-icon>
+                                </button>&nbsp;
+                                <button mat-icon-button *ngIf="!isEdit" (click)="editStatus()" color="primary" matTooltipPosition="after" matTooltip="Edit">
+                                    <mat-icon>edit</mat-icon>
+                                </button>&nbsp;
+                                <button mat-icon-button *ngIf="isEdit" (click)="cancel()" color="accent" matTooltip="Cancel">
+                                    <mat-icon>cancel</mat-icon>
+                                </button>
+                                &nbsp;
+                            </div>
+
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

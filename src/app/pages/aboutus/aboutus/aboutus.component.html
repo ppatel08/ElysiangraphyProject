@@ -1,0 +1,154 @@
+<div class="col-md-12">
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="card=title" style="font-size: 25px; margin-top: 5px;">
+                About Us
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div style="float: right;">
+                <button mat-raised-button (click)="edit()" class="btn btn-primary btn-sm">
+                    Edit
+                </button>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-sm-12" style="top: 1px;">
+            <div class="panel panel-black">
+                <div class="panel-heading panel-heading-black">User Details</div>
+                <div class="panel-body">
+                    <div style="overflow-x: auto;">
+                        <table>
+                            <tr>
+                                <th style="width: 15%;">Name</th>
+                                <td>{{aboutusData?.name}}</td>
+                                <th>Email</th>
+                                <td>{{aboutusData?.email}}</td>
+                            </tr>
+                            <tr>
+                                <th>Title (Designation)</th>
+                                <td colspan="3">{{aboutusData?.title}}</td>
+                            </tr>
+                            <tr>
+                                <th>Mobile Number</th>
+                                <td colspan="3">{{aboutusData?.phone}}</td>
+
+                            </tr>
+                            <tr>
+                                <th>Address</th>
+                                <td colspan="3">{{aboutusData?.address}}</td>
+                            </tr>
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-black">
+                <div class="panel-heading panel-heading-black">Who I Am Section</div>
+                <div class="panel-body">
+                    <div style="overflow-x: auto;">
+                        <table>
+                            <tr>
+                                <td rowspan="4" style="width: 350px;"> <img class="custom-image" [src]="root.getImageUrl(aboutusData?.whoiam_image)"></td>
+                            </tr>
+                            <tr>
+                                <th>Title</th>
+                                <td>{{aboutusData?.whoiam_title}}</td>
+                            </tr>
+                            <tr>
+                                <th>Subtitle</th>
+                                <td>{{aboutusData?.whoiam_subtitle}}</td>
+                            </tr>
+                            <tr>
+                                <th>Description</th>
+                                <td>{{aboutusData?.whoiam_description}}</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel panel-black" *ngIf="false">
+                <div class="panel-heading panel-heading-black">What I Do Section</div>
+                <div class="panel-body">
+                    <div style="overflow-x: auto;">
+                        <table>
+                            <tr>
+                                <th>Title</th>
+                                <td>{{aboutusData?.whatido_title}}</td>
+                                <td rowspan="4" style="width: 350px;">
+                                    <img class="custom-image" [src]="root.getImageUrl(aboutusData?.whatido_image)">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Subtitle</th>
+                                <td>{{aboutusData?.whatido_subtitle}}</td>
+                            </tr>
+                            <tr>
+                                <th>Description</th>
+                                <td>{{aboutusData?.whatido_description}}</td>
+                            </tr>
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="panel panel-black">
+                <div class="panel-heading panel-heading-black">Social Media Links</div>
+                <div class="panel-body">
+                    <div style="overflow-x: auto;">
+                        <table>
+                            <tr>
+                                <th style="width: 15%;">Instagram</th>
+                                <td>{{aboutusData?.instagram_link}}</td>
+                            </tr>
+                            <tr>
+                                <th>Twitter</th>
+                                <td>{{aboutusData?.twitter_link}}</td>
+                            </tr>
+                            <tr>
+                                <th>Facebook</th>
+                                <td>{{aboutusData?.fb_link}}</td>
+                            </tr>
+                            <tr>
+                                <th>Youtube</th>
+                                <td>{{aboutusData?.youtubeLink}}</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel panel-black">
+                <div class="panel-heading panel-heading-black">Tagline</div>
+                <div class="panel-body">
+                    <div style="overflow-x: auto;">
+                        <table>
+                            <tr>
+                                <th style="width: 15%;">Tagline Heading</th>
+                                <td>{{aboutusData?.tagline_heading}}</td>
+                            </tr>
+                            <tr>
+                                <th>Tagline Description</th>
+                                <td>{{aboutusData?.tagline_description}}</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel panel-black" *ngIf="false">
+                <div class="panel-heading panel-heading-black">Google Map Script</div>
+                <div class="panel-body">
+                    <div style="overflow-x: auto;">
+                        <pre>{{aboutusData?.google_map_script}}</pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

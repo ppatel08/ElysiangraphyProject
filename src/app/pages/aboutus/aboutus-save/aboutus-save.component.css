@@ -1,0 +1,14 @@
+table,
+.mat-elevation-z8 {
+    width: 100%;
+}
+
+.panel-heading-black {
+    color: #fff;
+    background-color: #222222 !important;
+    border-color: #222222 !important;
+}
+
+.panel-black {
+    border-color: #222222;
+}

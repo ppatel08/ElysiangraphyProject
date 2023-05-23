@@ -1,0 +1,14 @@
+.nav-bottom-right .owl-nav button.owl-prev, .nav-bottom-right .owl-nav button.owl-next {
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  background-color: rgba(0, 0, 0, 0.4) !important;
+  font-size: 14px;
+  color: #FFF !important;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.footer-bg {
+  background-color: black;
+}

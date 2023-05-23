@@ -1,0 +1,52 @@
+<div class="ev-container">
+    <div class="row">
+        <div class="col-sm-8">
+            <h1>Feedback Details</h1>
+        </div>
+        <div class="col-sm-4">
+            <div style="float: right;">
+                <button mat-raised-button (click)="back()" class="btn btn-success btn-sm">
+                    Back
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th style="width: 15%;">Name</th>
+                        <td>{{reviewData?.customer_name}}</td>
+                    </tr>
+                    <tr>
+                        <th>Email</th>
+                        <td>{{reviewData?.customer_email}}</td>
+                    </tr>
+                    <tr>
+                        <th>rate</th>
+                        <td>{{reviewData?.rate}}</td>
+                    </tr>
+                    <tr>
+                        <th>Feedback</th>
+                        <td>{{reviewData?.review_content}}</td>
+                    </tr>
+                    <tr>
+                        <th>Status</th>
+                        <td>
+                            {{(reviewData?.isActive === null || reviewData?.isActive === undefined) ? 'Pending' :
+                            reviewData?.isActive ? 'Approved':'Rejected'}}
+                            <span style="float: right;">
+                                <div>
+                                    <button class="btn btn-success btn-sm" *ngIf="(reviewData?.isActive === null || reviewData?.isActive === undefined) || !reviewData?.isActive" (click)="changeStatus(true)">Approve</button>
+                                    <button class="btn btn-danger btn-sm" *ngIf="(reviewData?.isActive === null || reviewData?.isActive === undefined) || reviewData?.isActive" (click)="changeStatus(false)">Reject</button>
+                                </div>
+
+                            </span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

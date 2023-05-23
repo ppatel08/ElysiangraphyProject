@@ -1,0 +1,64 @@
+<div class="ev-container">
+    <div class="row">
+        <div class="col-sm-8">
+            <h1>{{_id? 'Edit':'Create'}} Category</h1>
+        </div>
+        <div class="col-sm-4">
+            <div style="float: right;">
+                <button mat-raised-button (click)="submitForm()" class="btn btn-success btn-sm">
+                    Save
+                </button>
+                &nbsp;
+                <button mat-raised-button (click)="back()" class="btn btn-danger btn-sm">
+                    Cancel
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <form class="user" [formGroup]="categoryForm">
+                <div class="col-6">
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" formControlName="name" id="name" name="name" class="form-control">
+                        <div class="error input-error" style="width: auto;padding: 5px;"
+                            *ngIf="controls.name.invalid && (submitted || (controls.name.dirty || controls.name.touched))">
+                            <div *ngIf="controls.name.errors?.required">
+                                Name is required.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-group">
+                        <label>Thumbnail</label>
+                        <input type="file" formControlName="thumbnailUrl" id="thumbnailUrl" name="thumbnailUrl"
+                            (change)="handleUploadThumbnailImageInput($event.target)" class="form-control"
+                            enctype="multipart/form-data" accept=".png,.jpg,.jpeg">
+                        <div class="error input-error" style="width: auto;padding: 5px;"
+                            *ngIf="controls.thumbnailUrl.invalid && (submitted || (controls.thumbnailUrl.dirty || controls.thumbnailUrl.touched))">
+                            <div *ngIf="controls.thumbnailUrl.errors?.required">
+                                Thumbnail Image is required.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-group">
+                        <label>Cover Image</label>
+                        <input type="file" formControlName="coverImageUrl" id="coverImageUrl" name="coverImageUrl"
+                            (change)="handleUploadCoverImageInput($event.target)" class="form-control"
+                            enctype="multipart/form-data" accept=".png,.jpg,.jpeg">
+                        <div class="error input-error" style="width: auto;padding: 5px;"
+                            *ngIf="controls.coverImageUrl.invalid && (submitted || (controls.coverImageUrl.dirty || controls.coverImageUrl.touched))">
+                            <div *ngIf="controls.coverImageUrl.errors?.required">
+                                Cover Image is required.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

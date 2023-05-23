@@ -1,0 +1,92 @@
+<div class="ev-container">
+    <div class="row">
+        <div class="col-sm-8">
+            <h1>{{_id? 'Edit':'Add'}} Albums</h1>
+        </div>
+        <div class="col-sm-4">
+            <div style="float: right;">
+                <button mat-raised-button (click)="submitForm()" class="btn btn-success btn-sm">
+                    Save
+                </button>
+                &nbsp;
+                <button mat-raised-button (click)="back()" class="btn btn-danger btn-sm">
+                    Cancel
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <form class="user" [formGroup]="albumsForm">
+                <div class="col-6">
+                    <div class="form-group">
+                        <label for="categoryId"> Category: </label>
+                        <select formControlName="categoryId" id="categoryId" name="categoryId" class="form-control">
+                            <option *ngFor="let option of categoryData" [value]="option._id">{{option.name}}</option>
+                        </select>
+                        <div class="error input-error" style="width: auto;padding: 5px;"
+                            *ngIf="controls.categoryId.invalid && (submitted || (controls.categoryId.dirty || controls.categoryId.touched))">
+                            <div *ngIf="controls.categoryId.errors?.required">
+                                Category is required.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-group">
+                        <label>Title</label>
+                        <input type="text" formControlName="title" id="title" name="title" class="form-control">
+                        <div class="error input-error" style="width: auto;padding: 5px;"
+                            *ngIf="controls.title.invalid && (submitted || (controls.title.dirty || controls.title.touched))">
+                            <div *ngIf="controls.title.errors?.required">
+                                Title is required.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-group">
+                        <label>Decription</label>
+                        <textarea type="text" formControlName="description" id="description" name="description"
+                            class="form-control"></textarea>
+                        <div class="error input-error" style="width: auto;padding: 5px;"
+                            *ngIf="controls.description.invalid && (submitted || (controls.description.dirty || controls.description.touched))">
+                            <div *ngIf="controls.description.errors?.required">
+                                Title is required.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-6">
+                    <div class="form-group">
+                        <label>Thumbnail</label>
+                        <input type="file" formControlName="thumbnailUrl" id="thumbnailUrl" name="thumbnailUrl"
+                            (change)="handleUploadThumbnailImageInput($event.target)" class="form-control"
+                            enctype="multipart/form-data" accept=".png,.jpg,.jpeg">
+                        <div class="error input-error" style="width: auto;padding: 5px;"
+                            *ngIf="controls.thumbnailUrl.invalid && (submitted || (controls.thumbnailUrl.dirty || controls.thumbnailUrl.touched))">
+                            <div *ngIf="controls.thumbnailUrl.errors?.required">
+                                Thumbnail Image is required.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-group">
+                        <label>Cover</label>
+                        <input type="file" formControlName="coverImageUrl" id="coverImageUrl" name="coverImageUrl"
+                            (change)="handleUploadCoverImageInput($event.target)" class="form-control"
+                            enctype="multipart/form-data" accept=".png,.jpg,.jpeg">
+                        <div class="error input-error" style="width: auto;padding: 5px;"
+                            *ngIf="controls.coverImageUrl.invalid && (submitted || (controls.coverImageUrl.dirty || controls.coverImageUrl.touched))">
+                            <div *ngIf="controls.coverImageUrl.errors?.required">
+                                Cover Image is required.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

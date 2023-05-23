@@ -1,0 +1,177 @@
+<!-- *************************************
+*********** Begin body content ***********
+************************************** -->
+<div id="body-content-contactus" class="body-content-custom">
+
+
+  <!-- ========================
+  ///// Begin page header /////
+  =============================
+  * Use classes "ph-xs", "ph-sm", "ph-lg" or "ph-xlg" to set page header size.
+  * Use class "ph-center" or "ph-right" to align page header caption.
+  -->
+  <section id="page-header" class="ph-sm">
+
+    <!-- Begin page header image
+    =============================
+    * Use class "parallax-bg-1" up to "parallax-bg-6" to enable background image parallax effect.
+    * Use class "fade-out-scroll-3" to enable fade out effect if page scroll.
+    * Use class "hide-ph-image" to hide page header image without removing the code.
+    -->
+    <div class="page-header-image parallax-bg-3 bg-image" style="background-image: url(assets/img/misc/page-header-bg-5.jpg);">
+
+      <!-- Element cover
+      ===================
+      * You can use prepared background transparent classes depends on brightness of your page header image. More info: file "helper.css".
+      -->
+      <div class="cover bg-transparent-5-dark"></div>
+
+    </div>
+    <!-- End page header image -->
+
+    <!-- Begin page header inner -->
+    <div class="page-header-inner tt-wrap">
+
+      <!-- Begin page header caption
+      ===============================
+      * Use classes "ph-caption-xs", "ph-caption-sm", "ph-caption-lg" or "ph-caption-xlg" to set page header size.
+      * Use class "parallax-1" up to "parallax-6" to enable parallax effect.
+      * Use class "fade-out-scroll-1" up to "fade-out-scroll-6" to enable fade out effect if page scroll.
+      -->
+      <div class="page-header-caption ph-caption-lg parallax-4 fade-out-scroll-3">
+        <h1 class="page-header-title" style="color: white !important;">Contact</h1>
+        <hr class="hr-short">
+
+        <!-- Use data attributes to set text maximum characters or words (example: data-max-characters="120" or data-max-words="40") -->
+        <div class="page-header-description" data-max-words="40">
+          <p>Happiness is a by-product of an effort to make someone else happy.</p>
+        </div>
+
+      </div>
+      <!-- End page header caption -->
+
+    </div>
+    <!-- End page header inner -->
+
+  </section>
+  <!-- End page header -->
+
+
+  <!-- ============================
+  ///// Begin contact section /////
+  ============================= -->
+  <section id="contact-section">
+    <div class="contact-section-inner tt-wrap"> <!-- add/remove class "tt-wrap" to enable/disable element boxed layout (class "tt-boxed" is required in <body> tag! ) -->
+
+      <!-- ======================
+      ///// Begin split box /////
+      based on: http://www.minimit.com/articles/solutions-tutorials/bootstrap-3-responsive-columns-of-same-height
+      ======================= -->
+      <div class="split-box">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="row-lg-height full-height-vh">
+
+              <div *ngIf="false" class="col-lg-6 col-lg-height col-lg-middle bg-image" style="background-image: url(assets/img/misc/contact-bg.jpg); background-position: 50% 50%;">
+
+                <div class="cover"></div>
+
+                <div class="split-box-content text-left no-padding-left no-padding-right">
+
+                  <div class="contact-info-wrap">
+                    <div class="contact-info">
+                      <p><i class="fas fa-home"></i> Address : {{ aboutUs?.address }}</p>
+                      <p><i class="fas fa-phone"></i> Phone : {{ aboutUs?.phone }}</p>
+                      <p><i class="fas fa-envelope"></i> Email : <a [href]="'mailto:' + aboutUs?.email" target="_blank">{{aboutUs?.email}}</a></p>
+                    </div>
+
+                    <div class="social-buttons margin-top-20">
+                      <ul>
+                        <li *ngIf="aboutUs?.fb_link"><a [href]="aboutUs?.fb_link" class="btn btn-social-min btn-default btn-rounded-full" title="Follow me on Facebook" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                        <li *ngIf="aboutUs?.twitter_link"><a [href]="aboutUs?.twitter_link" class="btn btn-social-min btn-default btn-rounded-full" title="Follow me on Twitter" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                        <li *ngIf="aboutUs?.instagram_link"><a [href]="aboutUs?.instagram_link" class="btn btn-social-min btn-default btn-rounded-full" title="Follow me on Instagram" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                        <li *ngIf="aboutUs?.youtubeLink"><a [href]="aboutUs?.youtubeLink"
+                          class="btn btn-social-min btn-default btn-rounded-full" title="Follow me on Youtube" target="_blank">
+                          <i class="fab fa-youtube"></i></a></li>
+                      </ul>
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div> 
+
+              <div class="col-lg-6 col-lg-height col-lg-middle" style="padding-left: 20%; padding-right: 20%;">
+
+                <div class="split-box-content">
+
+                  <form id="contact-form" [formGroup]="myForm">
+                    <div class="contact-form-inner text-left">
+
+                      <div class="contact-form-info">
+
+                        <div class="tt-heading">
+                          <div class="tt-heading-inner">
+                            <h1 class="tt-heading-title">Drop Me a Line</h1>
+                            <hr class="hr-short">
+                          </div> 
+                        </div>
+
+
+                      </div> 
+                      <div class="row">
+                        <div class="col-lg-6">
+                          <div class="form-group">
+                            <input formControlName="name" type="text" class="form-control" name="name" placeholder="Your Name" required>
+                          </div>
+                        </div>
+                        <div class="col-lg-6">
+                          <div class="form-group">
+                            <input formControlName="customerEmail" type="email" class="form-control" name="email" placeholder="Your Email" required>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-lg-12">
+                          <div class="form-group">
+                            <input formControlName="subject"  type="text" class="form-control" name="subject" placeholder="Subject" required>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-lg-12">
+                          <div class="form-group">
+                            <textarea formControlName="message" class="form-control" name="message" rows="4" placeholder="Your Message" required></textarea>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="small text-gray"><em>* All fields are required!</em></div>
+
+                    </div> <!-- /.contact-form-inner -->
+
+                    <div class="row">
+                      <div class="col-lg-12">
+                        <button type="submit" class="btn btn-primary btn-lg margin-top-40" (click)="saveContact()">Send Message</button>
+                      </div>
+                    </div>
+                  </form>
+                  <!-- End contact form -->
+
+                </div>
+                <!-- End split box content -->
+
+              </div> <!-- /.col -->
+            </div> <!-- /.row-height -->
+          </div> <!-- /.row -->
+
+
+        </div> <!-- /.container -->
+      </div>
+      <!-- End split box -->
+
+    </div> <!-- /.contact-section-inner -->
+  </section>
+
+</div>

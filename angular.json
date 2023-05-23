@@ -1,0 +1,164 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": false
+  },
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "portfolio-admin-portal": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:application": {
+          "strict": true
+        }
+      },
+      "root": "",
+      "sourceRoot": "src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/portfolio-admin-portal",
+            "index": "src/index.html",
+            "main": "src/main.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "tsconfig.app.json",
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "src/styles.css",
+              "node_modules/ngx-toastr/toastr.css",
+              "src/assets/vendor/bootstrap/css/bootstrap.min.css",
+              "src/assets/vendor/animsition/css/animsition.min.css",
+              "src/assets/vendor/fontawesome/css/fontawesome-all.min.css",
+              "src/assets/vendor/lightgallery/css/lightgallery.min.css",
+              "src/assets/vendor/owl-carousel/css/owl.carousel.min.css",
+              "src/assets/vendor/owl-carousel/css/owl.theme.default.min.css",
+              "src/assets/css/helper.css",
+              "src/assets/css/theme.css"
+            ],
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "src/assets/vendor/bootstrap/js/bootstrap.min.js",
+              "src/assets/vendor/animsition/js/animsition.min.js",
+              "src/assets/vendor/jquery.easing.min.js",
+              "src/assets/vendor/isotope.pkgd.min.js",
+              "src/assets/vendor/imagesloaded.pkgd.min.js",
+              "src/assets/vendor/owl-carousel/js/owl.carousel.min.js",
+              "src/assets/vendor/jquery.mousewheel.min.js",
+              "src/assets/vendor/ytplayer/js/jquery.mb.YTPlayer.min.js",
+              "src/assets/vendor/lightgallery/js/lightgallery-all.min.js",
+              "src/assets/js/theme.js"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "1mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "portfolio-admin-portal:build:production"
+            },
+            "development": {
+              "browserTarget": "portfolio-admin-portal:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "portfolio-admin-portal:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "src/test.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "tsconfig.spec.json",
+            "karmaConfig": "karma.conf.js",
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "src/styles.css",
+              "src/assets/vendor/bootstrap/css/bootstrap.min.css",
+              "src/assets/vendor/animsition/css/animsition.min.css",
+              "src/assets/vendor/fontawesome/css/fontawesome-all.min.css",
+              "src/assets/vendor/lightgallery/css/lightgallery.min.css",
+              "src/assets/vendor/owl-carousel/css/owl.carousel.min.css",
+              "src/assets/vendor/owl-carousel/css/owl.theme.default.min.css",
+              "src/assets/vendor/ytplayer/css/jquery.mb.YTPlayer.min.css",
+              "src/assets/css/helper.css",
+              "src/assets/css/theme.css",
+              "src/assets/demo-panel/css/demo-panel.css",
+              "src/assets/css/dark-style.css",
+              "src/assets/css/round-style.css",
+              "src/assets/css/color-skins/skin-red.css",
+              "src/assets/css/color-skins/skin-green.css",
+              "src/assets/css/color-skins/skin-blue.css",
+              "src/assets/css/color-skins/skin-orange.css",
+              "src/assets/css/color-skins/skin-purple.css",
+              "src/assets/css/color-skins/skin-pink.css",
+              "src/assets/css/color-skins/skin-brown.css"
+            ],
+            "scripts": [
+            "src/assets/vendor/jquery/jquery.min.js",
+            "src/assets/vendor/bootstrap/js/bootstrap.min.js",
+            "src/assets/vendor/animsition/js/animsition.min.js",
+            "src/assets/vendor/jquery.easing.min.js",
+            "src/assets/vendor/isotope.pkgd.min.js",
+            "src/assets/vendor/imagesloaded.pkgd.min.js",
+            "src/assets/vendor/owl-carousel/js/owl.carousel.min.js",
+            "src/assets/vendor/jquery.mousewheel.min.js",
+            "src/assets/vendor/ytplayer/js/jquery.mb.YTPlayer.min.js",
+            "src/assets/vendor/lightgallery/js/lightgallery-all.min.js",
+            "src/assets/js/theme.js",
+            "src/assets/demo-panel/js/demo-panel.js",
+            "src/assets/demo-panel/js/styleswitch.js"]
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "portfolio-admin-portal"
+}

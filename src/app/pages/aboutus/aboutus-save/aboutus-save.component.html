@@ -1,0 +1,329 @@
+<div class="ev-container">
+    <div class="row">
+        <div class="col-sm-8">
+            <h1>{{_id? 'Edit':'Add'}} About Us</h1>
+        </div>
+        <div class="col-sm-4">
+            <div style="float: right;">
+                <button mat-raised-button (click)="submitForm()" class="btn btn-success btn-sm">
+                    Save
+                </button>
+                &nbsp;
+                <button mat-raised-button (click)="back()" class="btn btn-danger btn-sm">
+                    Cancel
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <form class="user" [formGroup]="aboutusForm">
+
+            <div class="col-sm-12" style="top: 1px;">
+                <div class="panel panel-black">
+                    <div class="panel-heading panel-heading-black">User Details</div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>Name</label>
+                                    <input type="text" formControlName="name" id="name" name="name"
+                                        class="form-control">
+                                    <div class="error input-error" style="width: auto;padding: 5px;"
+                                        *ngIf="controls.name.invalid && (submitted || (controls.name.dirty || controls.name.touched))">
+                                        <div *ngIf="controls.name.errors?.required">
+                                            Name is required.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>Email</label>
+                                    <input type="email" formControlName="email" id="email" name="email"
+                                        class="form-control">
+                                    <div class="error input-error" style="width: auto;padding: 5px;"
+                                        *ngIf="controls.email.invalid && (submitted || (controls.email.dirty || controls.email.touched))">
+                                        <div *ngIf="controls.email.errors?.required">
+                                            Email is required.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>Mobile Number</label>
+                                    <input type="number" formControlName="phone" id="phone" name="phone"
+                                        class="form-control">
+                                    <div class="error input-error" style="width: auto;padding: 5px;"
+                                        *ngIf="controls.phone.invalid && (submitted || (controls.phone.dirty || controls.phone.touched))">
+                                        <div *ngIf="controls.phone.errors?.required">
+                                            Mobile Number is required.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>Title (Designation)</label>
+                                    <input type="text" formControlName="title" id="title" name="title"
+                                        class="form-control">
+                                    <div class="error input-error" style="width: auto;padding: 5px;"
+                                        *ngIf="controls.title.invalid && (submitted || (controls.title.dirty || controls.title.touched))">
+                                        <div *ngIf="controls.title.errors?.required">
+                                            Title is required.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label>Address</label>
+                                    <input type="text" formControlName="address" id="address" name="address"
+                                        class="form-control">
+                                    <div class="error input-error" style="width: auto;padding: 5px;"
+                                        *ngIf="controls.address.invalid && (submitted || (controls.address.dirty || controls.address.touched))">
+                                        <div *ngIf="controls.address.errors?.required">
+                                            Address is required.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-black">
+                    <div class="panel-heading panel-heading-black">Who I Am Section</div>
+                    <div class="panel-body">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label>Image</label>
+                                <input type="file" formControlName="whoiam_imageUrl" id="whoiam_imageUrl"
+                                    name="whoiam_imageUrl" (change)="handleUploadWIMImageInput($event.target)"
+                                    class="form-control" enctype="multipart/form-data"
+                                    accept=".png,.jpg,.jpeg">
+                                <div class="error input-error" style="width: auto;padding: 5px;"
+                                    *ngIf="controls.whoiam_imageUrl.invalid && (submitted || (controls.whoiam_imageUrl.dirty || controls.whoiam_imageUrl.touched))">
+                                    <div *ngIf="controls.whoiam_imageUrl.errors?.required">
+                                        Image is required.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Title</label>
+                                <input type="text" formControlName="whoiam_title" id="whoiam_title" name="whoiam_title"
+                                    class="form-control">
+                                <div class="error input-error" style="width: auto;padding: 5px;"
+                                    *ngIf="controls.whoiam_title.invalid && (submitted || (controls.whoiam_title.dirty || controls.whoiam_title.touched))">
+                                    <div *ngIf="controls.whoiam_title.errors?.required">
+                                        Title is required.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Subtitle</label>
+                                <input type="text" formControlName="whoiam_subtitle" id="whoiam_subtitle"
+                                    name="whoiam_subtitle" class="form-control">
+                                <div class="error input-error" style="width: auto;padding: 5px;"
+                                    *ngIf="controls.whoiam_subtitle.invalid && (submitted || (controls.whoiam_subtitle.dirty || controls.whoiam_subtitle.touched))">
+                                    <div *ngIf="controls.whoiam_subtitle.errors?.required">
+                                        Subtitle is required.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label>Description</label>
+                                <textarea type="text" formControlName="whoiam_description" id="whoiam_description"
+                                    name="whoiam_description" class="form-control"></textarea>
+                                <div class="error input-error" style="width: auto;padding: 5px;"
+                                    *ngIf="controls.whoiam_description.invalid && (submitted || (controls.whoiam_description.dirty || controls.whoiam_description.touched))">
+                                    <div *ngIf="controls.whoiam_description.errors?.required">
+                                        Description is required.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel panel-black" *ngIf="false">
+                    <div class="panel-heading panel-heading-black">What I Do Section</div>
+                    <div class="panel-body">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label>Image</label>
+                                <input type="file" formControlName="whatido_imageUrl" id="whatido_imageUrl"
+                                    name="whatido_imageUrl" (change)="handleUploadWIDImageInput($event.target)"
+                                    class="form-control" enctype="multipart/form-data"
+                                    accept=".png,.jpg,.jpeg">
+                                <div class="error input-error" style="width: auto;padding: 5px;"
+                                    *ngIf="controls.whatido_imageUrl.invalid && (submitted || (controls.whatido_imageUrl.dirty || controls.whatido_imageUrl.touched))">
+                                    <div *ngIf="controls.whatido_imageUrl.errors?.required">
+                                        Image is required.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Title</label>
+                                <input type="text" formControlName="whatido_title" id="whatido_title"
+                                    name="whatido_title" class="form-control">
+                                <div class="error input-error" style="width: auto;padding: 5px;"
+                                    *ngIf="controls.whatido_title.invalid && (submitted || (controls.whatido_title.dirty || controls.whatido_title.touched))">
+                                    <div *ngIf="controls.whatido_title.errors?.required">
+                                        Title is required.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Subtitle</label>
+                                <input type="text" formControlName="whatido_subtitle" id="whatido_subtitle"
+                                    name="whatido_subtitle" class="form-control">
+                                <div class="error input-error" style="width: auto;padding: 5px;"
+                                    *ngIf="controls.whatido_subtitle.invalid && (submitted || (controls.whatido_subtitle.dirty || controls.whatido_subtitle.touched))">
+                                    <div *ngIf="controls.whatido_subtitle.errors?.required">
+                                        Subtitle is required.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label>Description</label>
+                                <textarea type="text" formControlName="whatido_description" id="whatido_description"
+                                    name="whatido_description" class="form-control"></textarea>
+                                <div class="error input-error" style="width: auto;padding: 5px;"
+                                    *ngIf="controls.whatido_description.invalid && (submitted || (controls.whatido_description.dirty || controls.whatido_description.touched))">
+                                    <div *ngIf="controls.whatido_description.errors?.required">
+                                        Description is required.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="panel panel-black">
+                    <div class="panel-heading panel-heading-black">Social Media Links</div>
+                    <div class="panel-body">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Facebook Link</label>
+                                <input type="url" formControlName="fb_link" id="fb_link" name="fb_link"
+                                    class="form-control">
+                                <div class="error input-error" style="width: auto;padding: 5px;"
+                                    *ngIf="controls.fb_link.invalid && (submitted || (controls.fb_link.dirty || controls.fb_link.touched))">
+                                    <div *ngIf="controls.fb_link.errors?.required">
+                                        Facebook Link is required
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Twitter Link</label>
+                                <input type="url" formControlName="twitter_link" id="twitter_link" name="twitter_link"
+                                    class="form-control">
+                                <div class="error input-error" style="width: auto;padding: 5px;"
+                                    *ngIf="controls.twitter_link.invalid && (submitted || (controls.twitter_link.dirty || controls.twitter_link.touched))">
+                                    <div *ngIf="controls.twitter_link.errors?.required">
+                                        Twitter Link is required
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Instagram Link</label>
+                                <input type="url" formControlName="instagram_link" id="instagram_link"
+                                    name="instagram_link" class="form-control">
+                                <div class="error input-error" style="width: auto;padding: 5px;"
+                                    *ngIf="controls.instagram_link.invalid && (submitted || (controls.instagram_link.dirty || controls.instagram_link.touched))">
+                                    <div *ngIf="controls.instagram_link.errors?.required">
+                                        Instagram Link is required
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Youtube Link</label>
+                                <input type="url" formControlName="youtubeLink" id="youtubeLink"
+                                    name="youtubeLink" class="form-control">
+                                <div class="error input-error" style="width: auto;padding: 5px;"
+                                    *ngIf="controls.youtubeLink.invalid && (submitted || (controls.youtubeLink.dirty || controls.youtubeLink.touched))">
+                                    <div *ngIf="controls.youtubeLink.errors?.required">
+                                        Youtube Link is required
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel panel-black">
+                    <div class="panel-heading panel-heading-black">Tagline</div>
+                    <div class="panel-body">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label>Heading</label>
+                                <input type="text" formControlName="tagline_heading" id="tagline_heading"
+                                    name="tagline_heading" class="form-control">
+                                <div class="error input-error" style="width: auto;padding: 5px;"
+                                    *ngIf="controls.tagline_heading.invalid && (submitted || (controls.tagline_heading.dirty || controls.tagline_heading.touched))">
+                                    <div *ngIf="controls.tagline_heading.errors?.required">
+                                        Tagline Heading is required
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label>Description</label>
+                                <textarea type="text" formControlName="tagline_description" id="tagline_description"
+                                    name="tagline_description" class="form-control"></textarea>
+                                <div class="error input-error" style="width: auto;padding: 5px;"
+                                    *ngIf="controls.tagline_description.invalid && (submitted || (controls.tagline_description.dirty || controls.tagline_description.touched))">
+                                    <div *ngIf="controls.tagline_description.errors?.required">
+                                        Tagline Description is required
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel panel-black" *ngIf="false">
+                    <div class="panel-heading panel-heading-black">Google Map Script</div>
+                    <div class="panel-body">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label>Google Map Link</label>
+                                <textarea rows="10" type="text" formControlName="google_map_script"
+                                    id="google_map_script" name="google_map_script" class="form-control"></textarea>
+                                <div class="error input-error" style="width: auto;padding: 5px;"
+                                    *ngIf="controls.google_map_script.invalid && (submitted || (controls.google_map_script.dirty || controls.google_map_script.touched))">
+                                    <div *ngIf="controls.google_map_script.errors?.required">
+                                        Google Map Script is required.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

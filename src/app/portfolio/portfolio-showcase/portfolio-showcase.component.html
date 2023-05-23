@@ -1,0 +1,58 @@
+  <div id="body-content" class="body-content-custom">
+    <section id="page-header-portfolio" class="ph-sm">
+      <div class="page-header-image parallax-bg-3 bg-image" style="background-image: url(assets/img/misc/page-header-bg-3.jpg);">
+        <div class="cover bg-transparent-5-dark"></div>
+
+      </div>
+      <div class="page-header-inner tt-wrap">
+
+        <div class="page-header-caption ph-caption-lg parallax-4 fade-out-scroll-3">
+          <h1 class="page-header-title">Portfolio</h1>
+          <hr class="hr-short">
+
+          <div class="page-header-description" data-max-words="40">
+            <p>What I like about photographs is that they capture a moment that’s gone forever, impossible to reproduce.</p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+    <section id="gallery-list-section" class="gl-categories">
+      <div class="isotope-wrap tt-wrap"> 
+
+        <div class="isotope col-3 gutter-3">
+
+          <div class="isotope-items-wrap gli-colored gli-alter-5" >
+
+            <div class="grid-sizer"></div>
+
+
+              <div class="isotope-item outdoor iso-height-1" *ngFor="let cat of cateGories">
+
+                <div class="gallery-list-item">
+                  <div class="gl-item-image-wrap">
+                    <a [routerLink]="['','album', cat?._id]" class="gl-item-image-inner">
+                      <div class="gl-item-image bg-image" [ngStyle]="{'background-image': 'url('+ cat?.imageUrl +')' , 'background-position':'50% 50%'}"></div>
+                      <span class="gl-item-image-zoom"></span>
+                    </a>
+                  </div>
+                  <div class="gl-item-info">
+                    <div class="gl-item-caption">
+                      <h2 class="gl-item-title"><a [routerLink]="['','album', cat?._id]">{{cat?.name}}</a></h2>
+                    </div>
+                  </div>
+
+                </div>
+
+              </div>
+
+          </div>
+
+        </div>
+
+      </div> <!-- /.isotope-wrap -->
+    </section>
+
+  </div>

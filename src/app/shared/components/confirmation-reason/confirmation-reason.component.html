@@ -1,0 +1,20 @@
+<h1 mat-dialog-title>{{data.title}}</h1>
+<div mat-dialog-content>
+  <p>{{data.message}}</p>
+  <br>
+  <div class="col-md-12 col-lg-12">
+    <div class="form-group">
+        <textarea [(ngModel)]="comment" name="comment" id="comment" cols="30" rows="3" class="form-control" placeholder="Comment"></textarea>
+        <div class="error" *ngIf="submitted && !comment">
+            <div>
+                Comment is required.
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<div mat-dialog-actions>
+  <button mat-button class="btn btn-success" (click)="onNoClick('Y')">Yes</button>
+  &nbsp;
+  <button mat-button class="btn btn-danger" (click)="onNoClick('N')">No</button>
+</div>

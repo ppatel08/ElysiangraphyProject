@@ -1,0 +1,61 @@
+<div id="wrapper">
+
+    <aside id="sidebar-wrapper">
+        <div class="sidebar-brand">
+            <h2>Elysiangraphy</h2>
+            <!-- <img src="../../../assets/img/newLogo.jpg" style="width: 140px; height: 40px;"> -->
+
+        </div>
+        <ul class="sidebar-nav">
+            <li>
+                <a href="javascript:void(0)" routerLink="/admin/dashboard"><i class="fa fa-home"></i> Dashboard</a>
+            </li>
+            <li>
+                <a href="javascript:void(0)" routerLink="/admin/dashboard/aboutus"><i class="fa fa-id-card"></i> About
+                    Us</a>
+            </li>
+            <li>
+                <a href="javascript:void(0)" routerLink="/admin/dashboard/contactus"><i class="fa fa-phone"></i>
+                    Inquiries</a>
+            </li>
+            <li>
+                <a href="javascript:void(0)" routerLink="/admin/dashboard/category"><i class="fa fa-th-list"></i>
+                    Category</a>
+            </li>
+            <li>
+                <a href="javascript:void(0)" routerLink="/admin/dashboard/albums"><i class="fa fa-table"></i> Albums</a>
+            </li>
+            <li *ngIf="false">
+                <a href="javascript:void(0)" routerLink="/admin/dashboard/images"><i class="fa fa-images"></i>
+                    Images</a>
+            </li>
+            <li>
+                <a href="javascript:void(0)" routerLink="/admin/dashboard/reviews"><i class="fa fa-list"></i>
+                    Feedback</a>
+            </li>
+        </ul>
+    </aside>
+
+    <div id="navbar-wrapper">
+        <nav class="navbar navbar-inverse" style="background-color: #222 !important;">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <!-- <a href="javascript:void(0)" class="navbar-brand" id="sidebar-toggle"><i class="fa fa-bars"></i></a> -->
+                </div>
+                <div class="navbar-right" style="padding-top: 10px; padding-bottom: 12px;">
+                    <a href="javascript:void(0)" class="navbar-brand" id="sidebar-toggle" (click)="logout()"><i
+                            class="fa fa-power-off"></i>&nbsp;&nbsp;Logout</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <section id="content-wrapper">
+        <div class="row">
+            <div class="col-lg-12" style="padding: 10px;">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </section>
+
+</div>
